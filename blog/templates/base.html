@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>{% block title %}Blog de Dylan{% endblock %}</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+  {% block head_extra %}{% endblock %}
+</head>
+<body>
+  <nav class="navbar is-primary" role="navigation">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="{% url 'post_list' %}"><strong>Blog de Dylan</strong></a>
+    </div>
+
+    <div class="navbar-menu">
+      <div class="navbar-start">
+        <a class="navbar-item" href="{% url 'post_create' %}">Nuevo Post</a>
+        <a class="navbar-item" href="{% url 'author_create' %}">Nuevo Autor</a>
+        <a class="navbar-item" href="{% url 'category_create' %}">Nueva Categoría</a>
+      </div>
+      <div class="navbar-end">
+        <div class="navbar-item">
+          <form action="{% url 'search_posts' %}" method="get">
+            <div class="field has-addons">
+              <p class="control is-expanded">
+                <input class="input" type="text" name="query" placeholder="Buscar…">
+              </p>
+              <p class="control">
+                <button class="button is-info">Buscar</button>
+              </p>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <section class="section">
+    <div class="container">
+      {% block content %}{% endblock %}
+    </div>
+  </section>
+</body>
+</html>

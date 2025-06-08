@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block title %}{{ object.title }} | MyBlog{% endblock %}
+
+{% block content %}
+<h1 class="title">{{ object.title }}</h1>
+<p class="subtitle">
+  <strong>{{ object.author }}</strong> — {{ object.category }} ·
+  {{ object.created_at|date:"d M Y H:i" }}
+</p>
+<div class="content">
+  {{ object.content|linebreaks }}
+</div>
+<a href="{% url 'post_list' %}" class="button">Volver</a>
+{% endblock %}

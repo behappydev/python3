@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.urls import reverse_lazy
 from django.views.generic import ListView, DetailView, CreateView
 from .models import Post, Author, Category
-from .forms import PostForm, AuthorForm, CategoryForm, SearchForm
+from .forms  import PostForm, AuthorForm, CategoryForm, SearchForm
 
 class PostList(ListView):
     model               = Post

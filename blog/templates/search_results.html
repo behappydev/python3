@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block title %}Resultados de búsqueda | MyBlog{% endblock %}
+
+{% block content %}
+<h1 class="title">Resultados</h1>
+{% if results %}
+  {% for post in results %}
+    <div class="box">
+      <h2 class="subtitle">
+        <a href="{{ post.get_absolute_url }}">{{ post.title }}</a>
+      </h2>
+      <p>{{ post.content|truncatechars:150 }}</p>
+    </div>
+  {% endfor %}
+{% else %}
+  <p>No se encontraron coincidencias.</p>
+{% endif %}
+{% endblock %}

@@ -5,14 +5,16 @@ class Author(models.Model):
     name = models.CharField("Nombre", max_length=100)
     bio  = models.TextField("Biografía", blank=True)
 
-    def __str__(self): return self.name
+    def __str__(self):
+        return self.name
 
 
 class Category(models.Model):
     name = models.CharField("Categoría", max_length=50, unique=True)
     description = models.TextField("Descripción", blank=True)
 
-    def __str__(self): return self.name
+    def __str__(self):
+        return self.name
 
 
 class Post(models.Model):
@@ -25,6 +27,8 @@ class Post(models.Model):
     class Meta:
         ordering = ["-created_at"]
 
-    def __str__(self): return self.title
+    def __str__(self):
+        return self.title
+
     def get_absolute_url(self):
         return reverse("post_detail", args=[self.pk])

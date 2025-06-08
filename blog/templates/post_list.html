@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block title %}Posts | MyBlog{% endblock %}
+
+{% block content %}
+<h1 class="title">Posts</h1>
+{% for post in posts %}
+  <div class="box">
+    <h2 class="subtitle">
+      <a href="{{ post.get_absolute_url }}">{{ post.title }}</a>
+    </h2>
+    <p>
+      <strong>{{ post.author }}</strong> — {{ post.category }} ·
+      {{ post.created_at|date:"d M Y H:i" }}
+    </p>
+    <p>{{ post.content|truncatechars:150 }}</p>
+  </div>
+{% empty %}
+  <p>No hay posts todavía.</p>
+{% endfor %}
+{% endblock %}
